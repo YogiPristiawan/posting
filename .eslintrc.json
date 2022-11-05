@@ -23,6 +23,9 @@
             "hoist": "functions", 
             "allow": [],
             "ignoreOnInitialization": false 
-        }]
+        }],
+        "default-case": ["off"],
+        "class-methods-use-this": ["off"],
+        "consistent-return": ["off"]
     }
 }
