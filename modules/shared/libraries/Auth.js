@@ -24,6 +24,11 @@ class Auth {
     const hash = await bcrypt.hash(plain, 10)
     return hash
   }
+
+  async comparePassword(plain, hash) {
+    const match = await bcrypt.compare(plain, hash)
+    return match
+  }
 }
 
 module.exports = new Auth()

@@ -2,7 +2,7 @@ const ClientError = require('./ClientError')
 
 class AuthorizationError extends ClientError {
   constructor(msg) {
-    super(msg)
+    super(403, msg)
     this.name = 'AuthorizationError.'
   }
 }

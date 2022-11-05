@@ -20,6 +20,14 @@ const create = async (data) => {
   return savedUser
 }
 
+const getByUsername = async (username) => {
+  await mongo.connect()
+
+  // get user by username
+  const user = await UserModel.findOne({ username })
+  return user
+}
+
 module.exports = {
-  create,
+  create, getByUsername,
 }
