@@ -2,8 +2,11 @@ const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
 
+const authMiddleware = require('./modules/shared/middlewares/AuthMiddleware')
+
 const indexRouter = require('./routes/index')
 const authRouter = require('./routes/auth')
+const blogRouter = require('./routes/blog')
 
 const app = express()
 
@@ -13,6 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
+app.use('/blogs', authMiddleware, blogRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

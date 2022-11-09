@@ -39,6 +39,7 @@ module.exports = async (body) => {
   // generate access token
   const accessToken = auth.generateToken({
     username: user.username,
+    user_id: user._id.toString(),
   })
 
   response.setMessage('login success')
